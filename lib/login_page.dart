@@ -19,6 +19,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   SharedPreferences? prefs;
   String? password;
+  String currentText = '';
 
   @override
   void initState() {
@@ -81,7 +82,9 @@ class _LoginPageState extends State<LoginPage> {
                       appContext: context,
                       keyboardType: TextInputType.number,
                       controller: tController,
-                      onChanged: (value) {},
+                      onChanged: (value) {
+                        currentText = value;
+                      },
                     ),
                   ),
                 ),
@@ -97,9 +100,9 @@ class _LoginPageState extends State<LoginPage> {
               child: TextButton(
                   onPressed: (() {
                     if (password != '') {
-                      if (password == tController.text) {
+                      if (password == currentText) {
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
-                            builder: (context) => const AppPage()));
+                            builder: (context) => AppPage()));
                       } else {
                         showDialog(
                             context: context,
@@ -109,8 +112,10 @@ class _LoginPageState extends State<LoginPage> {
                         print('Incorrect');
                       }
                       ;
-                    } else if (tController.text.length < 4) {
+                    } else if (currentText.length < 4) {
                       print('More characters');
+                      print(currentText.length);
+                      print(currentText);
                       tController.clear();
                       showDialog(
                           context: context,
@@ -119,7 +124,7 @@ class _LoginPageState extends State<LoginPage> {
                               descriptions:
                                   'Password must have at least 4 characters'));
                     } else {
-                      savePassword(tController.text);
+                      savePassword(currentText);
                       Navigator.of(context).pushReplacement(
                           MaterialPageRoute(builder: (context) => const LoginPage()));
                     }
