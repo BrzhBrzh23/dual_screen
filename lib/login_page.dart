@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:dual_screen/app_page.dart';
 import 'package:dual_screen/constants.dart';
 import 'package:dual_screen/custom_dialog_box.dart';
+import 'package:dual_screen/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -101,8 +102,8 @@ class _LoginPageState extends State<LoginPage> {
                   onPressed: (() {
                     if (password != '') {
                       if (password == currentText) {
-                        Navigator.of(context).pushReplacement(MaterialPageRoute(
-                            builder: (context) => AppPage()));
+                        Navigator.push(context, MaterialPageRoute(
+                            builder: (context) => const MainScreen()));
                       } else {
                         showDialog(
                             context: context,

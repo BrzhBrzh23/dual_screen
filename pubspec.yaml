@@ -41,8 +41,14 @@ dependencies:
   shared_preferences: ^2.0.15
   get: ^4.6.5
   font_awesome_flutter: ^10.2.1
-  hive: ^2.2.3
-  build_runner: ^2.3.2
+  webview_flutter: ^3.0.4
+  anim_search_bar: ^2.0.2
+  split_view: ^3.2.1
+  intl: ^0.17.0
+  sticky_grouped_list: ^3.1.0
+  flutter_shake_animated: ^0.0.5
+  multi_split_view: ^2.1.0
+  
   
 
 dev_dependencies:
@@ -74,6 +80,8 @@ flutter:
     - assets/images/browser.png
     - assets/images/like.png
     - assets/images/multitask.png
+    - assets/images/Slicer.png
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
