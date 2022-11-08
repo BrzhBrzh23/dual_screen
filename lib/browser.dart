@@ -5,6 +5,8 @@ import 'package:dual_screen/controller.dart';
 import 'package:dual_screen/search_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'dart:io' show Platform;
 
@@ -51,13 +53,12 @@ class _myappState extends State<myapp> {
                     currentUrl != null) {
                   _urlCtrl.text = currentUrl.toString();
                   return Expanded(
-                    child: OrientationBuilder(builder: (context, orientation) => SearchWidget(
-                      screenWidth: constraints.maxWidth,
-                      url: currentUrl,
-                      txtFieldController: _urlCtrl,
-                      controller: controller.data as WebViewController,
-                    ))
-                  );
+                      child: SearchWidget(
+                    screenWidth: constraints.maxWidth,
+                    url: currentUrl,
+                    txtFieldController: _urlCtrl,
+                    controller: controller.data as WebViewController,
+                  ));
                 }
 
                 return Center(child: Text('Loading...'));
@@ -66,20 +67,26 @@ class _myappState extends State<myapp> {
           ],
         ),
         body: WebView(
+          zoomEnabled: true,
+          allowsInlineMediaPlayback: true,
           initialUrl: filterUrl(widget.url),
           javascriptMode: JavascriptMode.unrestricted,
           onWebViewCreated: (WebViewController webcontroller) {
             controller.complete(webcontroller);
             currentUrl = webcontroller.currentUrl().toString();
           },
-          onWebResourceError: (error) {
-            Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-              print(
-                  'ADDED: https://www.google.com/search?q=${filterGoogleQuery(widget.url)}');
-              return myapp(
-                  url:
-                      'https://www.google.com/search?q=${filterGoogleQuery(widget.url)}');
-            }));
+          onWebResourceError: (error) async {
+            if (await InternetConnectionChecker().hasConnection) {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                print(
+                    'ADDED: https://www.google.com/search?q=${filterGoogleQuery(widget.url)}');
+                return myapp(
+                    url:
+                        'https://www.google.com/search?q=${filterGoogleQuery(widget.url)}');
+              }));
+            } else {
+              print(error);
+            }
           },
           onPageStarted: (url) => setState(() {
             currentUrl = url.toString();

@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class FavController extends GetxController {
-  var list = ['google', 'amazon', 'youtube'].obs;
+  var list = ['google', 'facebook', 'youtube', 'instagram', 'amazon'].obs;
   var history = <Site>[].obs;
 
   getFav() async {
@@ -30,7 +30,7 @@ class FavController extends GetxController {
 
   getHistory() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    String siteString = prefs.getString("history") as String;
+    final String siteString = await prefs.getString("history") as String;
     history.value = Site.decode(siteString);
 
     update();
@@ -38,9 +38,10 @@ class FavController extends GetxController {
 
   addHistory(String url, DateTime date) async {
     history.add(Site(url: url, date: date));
-    SharedPreferences prefs = await SharedPreferences.getInstance();
     String encodedData = Site.encode(history);
-    prefs.setString("history", encodedData);
+
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString("history", encodedData);
     update();
 
     print('Browser history: ${prefs.getString('history')}');

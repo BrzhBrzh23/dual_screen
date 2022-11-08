@@ -32,6 +32,9 @@ class Constants {
   final TextStyle regularBlackTextTen =
       const TextStyle(color: Color.fromARGB(177, 20, 18, 18), fontSize: 10);
 
+  final TextStyle regularBlackText =
+      const TextStyle(color: Color.fromARGB(177, 20, 18, 18));
+
   final TextStyle boldWhiteText = const TextStyle(
     color: Colors.white,
     fontWeight: FontWeight.bold,
@@ -71,6 +74,10 @@ getIcon(String name, Color color) {
       {
         return FaIcon(FontAwesomeIcons.youtube, color: color);
       }
+    case 'facebook':
+      {
+        return FaIcon(FontAwesomeIcons.facebook, color: color);
+      }
     default:
       {
         return FaIcon(FontAwesomeIcons.globe, color: color);
@@ -108,7 +115,7 @@ getDomaintFromUrl(String url) {
   if (url.contains('https://m.')) {
     return (url.substring(10, url.lastIndexOf('.'))).toUpperCase();
   }
-  if(url.contains('google.com/search?q=')){
+  if (url.contains('google.com/search?q=')) {
     return 'GOOGLE';
   }
   if (url.contains('https://www.')) {
@@ -118,8 +125,7 @@ getDomaintFromUrl(String url) {
         url.contains('.kz') ||
         url.contains('.net')) {
       return (url.substring(12, url.lastIndexOf('.'))).toUpperCase();
-    } 
-    else {
+    } else {
       return "no url: '${url.substring(12, url.lastIndexOf('/'))}'";
     }
   } else {

@@ -226,7 +226,8 @@ class _SearchWidgetState extends State<SearchWidget>
           (animation.value < 1)
               ? Row(children: [
                   IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                      },
                       icon: const Icon(
                         Icons.settings,
                         size: 15,
@@ -252,32 +253,41 @@ class _SearchWidgetState extends State<SearchWidget>
 
   Widget buildActionSheet(BuildContext context) => CupertinoActionSheet(
         actions: [
-          CupertinoActionSheetAction(
-              onPressed: () {
-                Get.find<FavController>().addFav(capitalizeStringS(
-                    (getDomaintFromUrl(widget.txtFieldController.text))
-                        .toLowerCase()));
-                Navigator.pop(context);
-              },
-              child: Text('Add to favorites')),
-          CupertinoActionSheetAction(
-              onPressed: () {
-                Navigator.of(this.context)
-                    .push(MaterialPageRoute(builder: ((context) => AppPage())));
-                Navigator.pop(context);
-              },
-              child: Text('Open favorites')),
-          CupertinoActionSheetAction(
-              onPressed: () {
-                Navigator.of(this.context).push(
-                    MaterialPageRoute(builder: ((context) => HistoryPage())));
-                Navigator.pop(context);
-              },
-              child: Text('Open history')),
-          CupertinoActionSheetAction(
-              onPressed: () {}, child: Text('Swap Screens')),
+          Container(
+            color: Colors.white,
+            child: CupertinoActionSheetAction(
+                onPressed: () {
+                  Get.find<FavController>().addFav(capitalizeStringS(
+                      (getDomaintFromUrl(widget.txtFieldController.text))
+                          .toLowerCase()));
+                  Navigator.pop(context);
+                },
+                child: Text('Add to favorites', style: Constants().regularBlackText,)),
+          ),
+          Container(
+            color: Colors.white,
+
+            child: CupertinoActionSheetAction(
+                onPressed: () {
+                  Navigator.of(this.context)
+                      .push(MaterialPageRoute(builder: ((context) => AppPage())));
+                  Navigator.pop(context);
+                },
+                child: Text('Open favorites', style: Constants().regularBlackText)),
+          ),
+          Container(
+            color: Colors.white,
+            child: CupertinoActionSheetAction(
+                onPressed: () {
+                  Navigator.of(this.context).push(
+                      MaterialPageRoute(builder: ((context) => HistoryPage())));
+                  Navigator.pop(context);
+                },
+                child: Text('Open history', style: Constants().regularBlackText)),
+          ),
         ],
         cancelButton: CupertinoActionSheetAction(
+          isDestructiveAction: true,
           child: Text('Cancel'),
           onPressed: () {
             Navigator.pop(context);

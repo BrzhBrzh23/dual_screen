@@ -15,35 +15,62 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return OrientationBuilder(builder: (context, orient) {
-      return Scaffold(
-          body: SplitView(
-        indicator: Container(
-          foregroundDecoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('assets/images/Slicer.png'),
-                fit: BoxFit.fill),
-          ),
+      return Container(
+        color: Constants().blackMenuColor,
+        child: SafeArea(
+          bottom: false,
+          child: Scaffold(
+              body: MultiSplitView(
+            controller: (orient == Orientation.landscape)
+                ? MultiSplitViewController(areas: [
+                    Area(minimalWeight: 0.37),
+                    Area(minimalWeight: 0.37)
+                  ])
+                : MultiSplitViewController(areas: [
+                    Area(minimalWeight: 0.15),
+                    Area(minimalWeight: 0.15)
+                  ]),
+            axis: (orient == Orientation.portrait)
+                ? Axis.vertical
+                : Axis.horizontal,
+            dividerBuilder:
+                (axis, index, resizable, dragging, highlighted, themeData) =>
+                    Container(
+              foregroundDecoration: const BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage('assets/images/Slicer.png'),
+                    fit: BoxFit.fill),
+              ),
+            ),
+            // indicator: Container(
+            //   foregroundDecoration: const BoxDecoration(
+            //     image: DecorationImage(
+            //         image: AssetImage('assets/images/Slicer.png'),
+            //         fit: BoxFit.fill),
+            //   ),
+            // ),
+            // viewMode: (orient == Orientation.portrait)
+            //     ? SplitViewMode.Vertical
+            //     : SplitViewMode.Horizontal,
+            children: [
+              Navigator(
+                onGenerateRoute: (routeSettings) {
+                  return MaterialPageRoute(
+                    builder: (context) => AppPage(),
+                  );
+                },
+              ),
+              Navigator(
+                onGenerateRoute: (routeSettings) {
+                  return MaterialPageRoute(
+                    builder: (context) => AppPage(),
+                  );
+                },
+              ),
+            ],
+          )),
         ),
-        viewMode: (orient == Orientation.portrait)
-            ? SplitViewMode.Vertical
-            : SplitViewMode.Horizontal,
-        children: [
-          Navigator(
-            onGenerateRoute: (routeSettings) {
-              return MaterialPageRoute(
-                builder: (context) => AppPage(),
-              );
-            },
-          ),
-          Navigator(
-            onGenerateRoute: (routeSettings) {
-              return MaterialPageRoute(
-                builder: (context) => AppPage(),
-              );
-            },
-          ),
-        ],
-      ));
+      );
     });
   }
 }
