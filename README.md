@@ -2,6 +2,7 @@
 
 
 Dual Screen 
+
 Use your IOS or Android device for several tasks at the same time
 
 - Watch youtube videos and chat
