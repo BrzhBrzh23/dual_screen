@@ -3,7 +3,6 @@ import 'dart:ui';
 
 import 'package:dual_screen/app_page.dart';
 import 'package:dual_screen/browser.dart';
-import 'package:dual_screen/browser_page.dart';
 import 'package:dual_screen/constants.dart';
 import 'package:dual_screen/controller.dart';
 import 'package:dual_screen/history_page.dart';

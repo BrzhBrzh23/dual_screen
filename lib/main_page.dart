@@ -1,7 +1,6 @@
 import 'package:dual_screen/app_page.dart';
 import 'package:dual_screen/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:split_view/split_view.dart';
 import 'package:multi_split_view/multi_split_view.dart';
 
 class MainScreen extends StatefulWidget {
@@ -42,16 +41,7 @@ class _MainScreenState extends State<MainScreen> {
                     fit: BoxFit.fill),
               ),
             ),
-            // indicator: Container(
-            //   foregroundDecoration: const BoxDecoration(
-            //     image: DecorationImage(
-            //         image: AssetImage('assets/images/Slicer.png'),
-            //         fit: BoxFit.fill),
-            //   ),
-            // ),
-            // viewMode: (orient == Orientation.portrait)
-            //     ? SplitViewMode.Vertical
-            //     : SplitViewMode.Horizontal,
+          
             children: [
               Navigator(
                 onGenerateRoute: (routeSettings) {

@@ -1,9 +1,7 @@
 import 'package:dual_screen/browser.dart';
-import 'package:dual_screen/browser_page.dart';
 import 'package:dual_screen/constants.dart';
 import 'package:dual_screen/controller.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:flutter_shake_animated/flutter_shake_animated.dart';
 
