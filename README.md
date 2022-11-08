@@ -32,17 +32,17 @@ DUAL SCREEN BROWSER
 
 MULTIPLE WEB PAGES
 
-<img width="200" alt="Снимок экрана 2022-11-08 в 19 00 17" src="https://user-images.githubusercontent.com/111867806/200574401-73c39a8c-6b73-48e4-9a81-203ce4bb3e5e.png">    
+<img width="200" alt="Снимок экрана 2022-11-08 в 19 00 17" src="https://user-images.githubusercontent.com/111867806/200574401-73c39a8c-6b73-48e4-9a81-203ce4bb3e5e.png">    <img src="https://user-images.githubusercontent.com/111867806/200572579-1abd3529-5271-40b8-8243-c98a5cb66145.gif" width="200">  <img src="https://user-images.githubusercontent.com/111867806/200572611-1fca1fb7-dffb-4343-9a97-fd74ab3c8c05.gif" width="200">
 
 SAVE YOUR FAVORITE PAGES
 
-<img width="200" alt="Снимок экрана 2022-11-08 в 19 00 23" src="https://user-images.githubusercontent.com/111867806/200574633-0cf72f10-939c-428d-b5fb-01d0c07b5039.png"> <img src="https://user-images.githubusercontent.com/111867806/200572611-1fca1fb7-dffb-4343-9a97-fd74ab3c8c05.gif" width="200">
+<img width="200" alt="Снимок экрана 2022-11-08 в 19 00 23" src="https://user-images.githubusercontent.com/111867806/200574633-0cf72f10-939c-428d-b5fb-01d0c07b5039.png"> 
 
 LANDSCAPE MODE
 
 <img width="400" alt="Снимок экрана 2022-11-08 в 19 02 00" src="https://user-images.githubusercontent.com/111867806/200575005-83d5608e-5663-44b1-ab47-fc305118ac59.png">   
 
-<img width="400" alt="Снимок экрана 2022-11-08 в 19 00 46" src="https://user-images.githubusercontent.com/111867806/200575243-1b26048a-173e-4ce4-84e3-a2afb8f30319.png"> <img src="https://user-images.githubusercontent.com/111867806/200572579-1abd3529-5271-40b8-8243-c98a5cb66145.gif" width="200"> 
+<img width="400" alt="Снимок экрана 2022-11-08 в 19 00 46" src="https://user-images.githubusercontent.com/111867806/200575243-1b26048a-173e-4ce4-84e3-a2afb8f30319.png"> 
 
 
 DRAGGABLE DIVIDER
